@@ -1,3 +1,8 @@
+#Bot ignore files
+settings.py
+seen_items
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
