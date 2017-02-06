@@ -11,11 +11,10 @@ from math import radians, cos, sin, asin, sqrt
 class Bot(object):
 
     def __init__(self):
-        writepath = 'seen_items'
-
-        mode = 'a' if os.path.exists(writepath) else 'w'
-        with open(writepath, mode) as f:
-            pass
+        #If the seen_items file doesn't exist, lets create it!
+        if not os.path.exists("seen_items"):
+            with open(writepath, "w") as f:
+                pass
 
 
     def run(self):
@@ -63,15 +62,17 @@ class Bot(object):
                 "text": "New traffic item",
                 "attachments": [
                     {
-                    "title": title if title else "No title",
+                    "title": title if title else "",
                     "title_link": link if link else "",
-                    "text": text if text else "No body",
-                    "image_url": ("http://static-maps.yandex.ru/"
-                                  "1.x/?lang=en-US&ll={},{}&z=12"
-                                  "&l=map&size=450,450&pt={},{},"
-                                  "vkgrm").format(
-                                  longitude, latitude,
-                                  longitude, latitude) if longitude and latitude else ""
+                    "text": text if text else "",
+                    "image_url": (
+                        "http://static-maps.yandex.ru/"
+                        "1.x/?lang=en-US&ll={},{}&z=12"
+                        "&l=map&size=650,350&pt={},{},"
+                        "vkgrm").format(
+                            longitude, latitude,
+                            longitude, latitude) if longitude
+                                                 and latitude else ""
                     }
                 ]
             }
