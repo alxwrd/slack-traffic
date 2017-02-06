@@ -36,20 +36,25 @@ class Bot(object):
                 #If we haven't seen this item, push to the slack webhook
                 self.post_slack(item.find("title").text,
                                 item.find("link").text,
-                                item.find("description").text)
+                                item.find("description").text,
+                                item.find("longitude").text,
+                                item.find("latitude").text)
                 #The update the seen items
                 self.update_seen(item.find("guid").text)
             else:
                 pass
 
 
-    def post_slack(self, title=None, link=None, text=None):
+    def post_slack(self, title=None, link=None, text=None,
+                    longitude=None, latitude=None):
         """Push some JSON to the webhook
 
         Args:
             title (str): The title of the message.
             link (str): The link the title should go to.
             text (str): The body of the message.
+            longitude (str): The longitute for the image.
+            latitude (str): The latitude for the image.
 
         Returns:
             http response: The response of the webhook.
@@ -58,9 +63,15 @@ class Bot(object):
                 "text": "New traffic item",
                 "attachments": [
                     {
-                        "title": title if title else "No title",
-                        "title_link": link if link else "",
-                        "text": text if text else "No body",
+                    "title": title if title else "No title",
+                    "title_link": link if link else "",
+                    "text": text if text else "No body",
+                    "image_url": ("http://static-maps.yandex.ru/"
+                                  "1.x/?lang=en-US&ll={},{}&z=12"
+                                  "&l=map&size=450,450&pt={},{},"
+                                  "vkgrm").format(
+                                  longitude, latitude,
+                                  longitude, latitude) if longitude and latitude else ""
                     }
                 ]
             }
