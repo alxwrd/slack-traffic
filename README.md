@@ -1,6 +1,6 @@
 # Traffic Bot :oncoming_automobile:
 
-Traffic Bot is a [slack](https://slack.com/) bot for traffic alerts in the UK. Data is pulled from an xml feed from [highways.gov.uk](http://www,highways.gov.uk), and then pushed to your slack webhook.
+Traffic Bot is a [slack](https://slack.com/) bot for traffic alerts in the UK. Data is pulled from an xml feed from [highways.gov.uk](http://www.highways.gov.uk), and then pushed to your slack webhook.
 
 [data.gov.uk link](https://data.gov.uk/dataset/live-traffic-information-from-the-highways-agency-road-network/resource/7b941228-e805-4933-b417-a4eb6fb0fa77)
 
