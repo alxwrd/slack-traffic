@@ -12,7 +12,8 @@ class Bot(object):
 
     def __init__(self):
         #If the seen_items file doesn't exist, lets create it!
-        if not os.path.exists("seen_items"):
+        writepath = "seen_items"
+        if not os.path.exists(writepath):
             with open(writepath, "w") as f:
                 pass
 
