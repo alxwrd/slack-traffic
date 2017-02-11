@@ -1,4 +1,3 @@
-import settings #settings.py
 import urllib2
 import json
 import os
@@ -6,6 +5,9 @@ import os
 import xml.etree.ElementTree as ET
 
 from math import radians, cos, sin, asin, sqrt
+from settings import Settings
+
+settings = Settings()
 
 
 class Bot(object):

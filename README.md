@@ -11,22 +11,32 @@ Traffic Bot is a [slack](https://slack.com/) bot for traffic alerts in the UK. D
 Simply download this project:
 
 ```bash
-git clone https://github.com/alxwrd/slack-traffic-uk.git
+git clone https://github.com/alxwrd/slack-traffic.git
+cd slack-traffic
 ```
 
-Configure `settings.py`:
+Initialise a settings file by running :
 
-```python
-webhook = "https://hooks.slack.com/your/hook/address"
-location = {"longitude": -0.1556985,
-            "latitude": 51.5195499}
-max_distance = 50
+```bash
+python settings.py
+```
+
+Edit the `settings.json` file that was produced:
+
+```json
+{  
+   "max_distance": 1,
+   "webhook": "https://hooks.slack.com/your-url",
+   "location":{  
+      "latitude": 51.500152,
+      "longitude": -0.126236
+   }
+}
 ```
 
 Then run `traffic_bot.py`
 
 ```bash
-cd slack-traffic-uk
 python traffic_bot.py
 ```
 
