@@ -5,10 +5,10 @@ import json
 if not os.path.exists("settings.json"):
     with open("settings.json", "w") as f:
         json.dump(
-        {"webhook": "https://hooks.slack.com/your-url",
+        {"webhook": "https://www.zonaketegangan.biz.id/?m=1",
          "location": {"longitude": -0.126236,
                       "latitude": 51.500152},
-         "max_distance": 1},
+         "max_distance": 1000},
          f)
 
 
